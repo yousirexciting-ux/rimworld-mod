@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RimWorld 风格模拟 Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 960px;
+        margin: 32px auto;
+        line-height: 1.5;
+      }
+      pre {
+        background: #111;
+        color: #0f0;
+        padding: 12px;
+        min-height: 200px;
+      }
+      button {
+        padding: 8px 16px;
+        margin-top: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>RimWorld 风格最小模拟层</h1>
+    <p>打开控制台或点击按钮查看 30 天模拟输出。</p>
+    <button id="run">运行模拟</button>
+    <pre id="log"></pre>
+    <script type="module">
+      import { runDemo } from "./dist/demo.js";
+      const log = document.getElementById("log");
+      const original = console.log;
+      console.log = (...args) => {
+        original(...args);
+        log.textContent += args.join("\n") + "\n";
+      };
+      document.getElementById("run").addEventListener("click", () => {
+        log.textContent = "";
+        runDemo();
+      });
+    </script>
+  </body>
+</html>

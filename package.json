@@ -1,0 +1,25 @@
+{
+  "name": "rimworld-mod",
+  "version": "1.0.0",
+  "description": "专门为制作rimworld mod创建",
+  "main": "dist/demo.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "demo": "npm run build && node dist/demo.js",
+    "package": "npm run build && npm pack"
+  },
+  "files": [
+    "dist",
+    "demo.html",
+    "README.md",
+    "package.json",
+    "tsconfig.json"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
